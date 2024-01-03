@@ -1,0 +1,35 @@
+print "Hello World!";
+
+
+// Playing with function
+fun printSum(a, b) {
+    return a + b;
+}
+
+print "The sum of 1 + 2 is...";
+print printSum(1, 2);
+
+
+// Playing with control flow
+var age = 23;
+
+if (age < 18) {
+    print "Minor";
+} else {
+    print "Major";
+}
+
+// Fibonacci
+
+fun fibonacci(n) {
+    if (n <= 0) {
+        return 0;
+    }
+    if (n <= 2) {
+        return 1;
+    } else {
+        return fibonacci(n - 1) + fibonacci(n - 2);
+    }
+}
+
+print fibonacci(18);

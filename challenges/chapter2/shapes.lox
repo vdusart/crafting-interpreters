@@ -1,0 +1,95 @@
+class Vector3 {
+    init(x, y, z) {
+        this.x = x;
+        this.y = y;
+        this.z = z;
+    }
+
+    add(o) {
+        this.x = this.x + o.x;
+        this.y = this.y + o.y;
+        this.z = this.z + o.z;
+    }
+
+    display() {
+        print "Position:";
+        print "x:";
+        print this.x;
+
+        print "y:";
+        print this.y;
+
+        print "z:";
+        print this.z;
+    }
+}
+
+class Shape {
+    init(pos) {
+        this.pos = pos;
+    }
+
+    display() {
+        this.pos.display();
+    }
+
+    move(delta) {
+        print "Moving the shape...";
+        this.pos.add(delta);
+    }
+}
+
+class Cube < Shape {
+    init(pos, side) {
+        super.init(pos);
+        this.side = side;
+    }
+
+    display() {
+        print "I'm a cube of side:";
+        print this.side;
+
+        super.display();
+    }
+}
+
+class Circle < Shape {
+    init(pos, radius) {
+        super.init(pos);
+        this.radius = radius;
+    }
+
+    display() {
+        print "I'm a circle of radius:";
+        print this.radius;
+
+        super.display();
+    }
+}
+
+fun draw_line(n) {
+    var line = "";
+    while (n > 0) {
+        line = line + "-";
+        n = n - 1;
+    }
+    print line;
+}
+
+var LINE_SIZE = 30;
+
+var shape = Shape(Vector3(1, 2, 3));
+shape.display();
+draw_line(LINE_SIZE);
+
+var cube = Cube(Vector3(2, 2, 4), 10);
+cube.display();
+var delta = Vector3(-2, 3, 6);
+cube.move(delta);
+cube.display();
+draw_line(LINE_SIZE);
+
+var circle = Circle(Vector3(10, 20, 30), 3);
+circle.display();
+circle.move(Vector3(90, 80, 70));
+circle.display();
