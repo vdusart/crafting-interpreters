@@ -74,6 +74,8 @@ class Scanner {
             case '/':
                 if (match('/')) {
                     while (peek() != '\n' && !isAtEnd()) advance();
+                } else if (peek() == '*') {
+                    block_comments();
                 } else {
                     addToken(TokenType.SLASH);
                 }
@@ -100,6 +102,24 @@ class Scanner {
                 }
                 break;
         }
+    }
+
+    private void block_comments() {
+        advance();
+        while (!(peek() == '*' && peekNext() == '/') && !isAtEnd()) {
+            if (peek() == '\n') line++;
+            if (peek() == '/' && peekNext() == '*')
+                block_comments();
+            else
+                advance();
+        }
+        if (isAtEnd()) {
+            Lox.error(line, "Unterminated string.");
+            return;
+        }
+        // Consume the "*/".
+        advance();
+        advance();
     }
 
     private void identifier() {

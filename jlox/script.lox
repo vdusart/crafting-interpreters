@@ -1,3 +1,14 @@
 var language = "lox";
 // This comment is ignored
 print "Hello, World!";
+/*
+    Block comment
+    /*
+        Nested block comment
+        /*
+            Second level of nested block comment
+        */
+    */
+    This is ignored too
+*/
+print "1 + 2";
