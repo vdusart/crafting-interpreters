@@ -51,7 +51,6 @@ def defineAST(types: list[str]):
     f = open(path, 'w')
     writer = Writer(f)
 
-    writer.write('import java.utils.List;\n')
     writer.write(f"abstract class {BASE_NAME} {{")
 
     defineVistor(writer, types)
