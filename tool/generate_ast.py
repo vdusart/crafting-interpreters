@@ -74,7 +74,8 @@ if __name__ == "__main__":
         "Binary     : Expr left, Token operator, Expr right",
         "Grouping   : Expr expression",
         "Literal    : Object value",
-        "Unary      : Token operator, Expr right"
+        "Unary      : Token operator, Expr right",
+        "Variable   : Token name"
     ]
     defineAST("Expr", types)
     print("Done generating 'Expr' class.")
@@ -83,6 +84,7 @@ if __name__ == "__main__":
     types: list[str] = [
         "Expression     : Expr expression",
         "Print          : Expr expression",
+        "Var            : Token name, Expr initializer"
     ]
     defineAST("Stmt", types)
     print("Done generating 'Stmt' class.")
