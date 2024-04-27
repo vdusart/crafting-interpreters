@@ -12,3 +12,12 @@ print "Hello, World!";
     This is ignored too
 */
 print "1 + 2";
+
+var a = 42;
+var b = 8;
+print "42 + 8 = ";
+print a + b;
+
+print "Reassign a to 20";
+a = 20;
+print a;

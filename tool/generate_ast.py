@@ -71,6 +71,7 @@ def defineAST(baseName: str, types: list[str]):
 if __name__ == "__main__":
     # ----------- Generating the Expr file -------------------
     types: list[str] = [
+        "Assign     : Token name, Expr value",
         "Binary     : Expr left, Token operator, Expr right",
         "Grouping   : Expr expression",
         "Literal    : Object value",
